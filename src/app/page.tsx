@@ -1,16 +1,23 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import { HSStepper } from 'preline/preline'
 import { IoCheckmark } from 'react-icons/io5'
+
+const isBrowser = typeof window !== 'undefined'
 
 export default function Home() {
   const stepperRef = useRef(null)
 
   useEffect(() => {
-    if (!stepperRef.current) return
+    if (!stepperRef.current || !isBrowser) return
 
-    const stepper = new HSStepper(stepperRef.current)
+    import('preline/preline').then(({ HSStepper }) => {
+      console.log(stepperRef.current)
+
+      const stepper = new HSStepper(stepperRef.current!)
+
+      console.log(stepper)
+    })
   }, [])
 
   return (
