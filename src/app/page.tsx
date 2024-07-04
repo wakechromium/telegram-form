@@ -13,10 +13,11 @@ export default function Home() {
 
     import('preline/preline').then(({ HSStepper }) => {
       console.log(stepperRef.current)
+      HSStepper.autoInit()
 
-      const stepper = new HSStepper(stepperRef.current!)
+      // const stepper = new HSStepper(stepperRef.current!)
 
-      console.log(stepper)
+      // console.log(stepper)
     })
   }, [])
 
