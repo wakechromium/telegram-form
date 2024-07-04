@@ -12,7 +12,6 @@ export default function Home() {
     if (!stepperRef.current || !isBrowser) return
 
     import('preline/preline').then(({ HSStepper }) => {
-      console.log(stepperRef.current)
       HSStepper.autoInit()
 
       // const stepper = new HSStepper(stepperRef.current!)
