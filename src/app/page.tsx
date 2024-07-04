@@ -1,113 +1,269 @@
-import Image from "next/image";
+'use client'
+
+import { useRef, useEffect } from 'react'
+import { HSStepper } from 'preline/preline'
+import { IoCheckmark } from 'react-icons/io5'
 
 export default function Home() {
+  const stepperRef = useRef(null)
+
+  useEffect(() => {
+    if (!stepperRef.current) return
+
+    const stepper = new HSStepper(stepperRef.current)
+  }, [])
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="py-4">
+      <form
+        data-hs-stepper
+        ref={stepperRef}
+        className="mx-auto max-w-3xl rounded-lg border border-gray-200 p-4 dark:border-neutral-700"
+      >
+        <ul className="relative mx-auto flex max-w-md flex-row gap-x-2">
+          <li
+            className="group flex flex-1 shrink basis-0 items-center gap-x-2"
+            data-hs-stepper-nav-item='{"index": 1}'
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <span className="group inline-flex min-h-7 min-w-7 items-center align-middle text-xs">
+              <span className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-800 group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                <span className="hs-stepper-success:hidden hs-stepper-completed:hidden">
+                  1
+                </span>
+                <IoCheckmark className="hidden size-3 flex-shrink-0 hs-stepper-success:block" />
+              </span>
+              <span className="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                Login Info
+              </span>
+            </span>
+            <div className="h-px w-full flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600" />
+          </li>
+
+          <li
+            className="group flex flex-1 shrink basis-0 items-center gap-x-2"
+            data-hs-stepper-nav-item='{"index": 2}'
+          >
+            <span className="group inline-flex min-h-7 min-w-7 items-center align-middle text-xs">
+              <span className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-800 group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                <span className="hs-stepper-success:hidden hs-stepper-completed:hidden">
+                  2
+                </span>
+                <IoCheckmark className="hidden size-3 flex-shrink-0 hs-stepper-success:block" />
+              </span>
+              <span className="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                Card Info
+              </span>
+            </span>
+            <div className="h-px w-full flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600" />
+          </li>
+
+          <li
+            className="group flex flex-1 shrink basis-0 items-center gap-x-2"
+            data-hs-stepper-nav-item='{"index": 3}'
+          >
+            <span className="group inline-flex min-h-7 min-w-7 items-center align-middle text-xs">
+              <span className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-800 group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                <span className="hs-stepper-success:hidden hs-stepper-completed:hidden">
+                  3
+                </span>
+                <IoCheckmark className="hidden size-3 flex-shrink-0 hs-stepper-success:block" />
+              </span>
+              <span className="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                Step
+              </span>
+            </span>
+            <div className="h-px w-full flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600" />
+          </li>
+        </ul>
+
+        <div className="mt-5 sm:mt-8">
+          <div data-hs-stepper-content-item='{"index": 1}'>
+            <div className="mx-auto flex max-w-md flex-col gap-4">
+              <div className="min-w-full">
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+
+              <div className="min-w-full">
+                <label
+                  htmlFor="password"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            data-hs-stepper-content-item='{"index": 2}'
+            style={{ display: 'none' }}
+          >
+            <div className="mx-auto flex max-w-md flex-col gap-4">
+              <div className="min-w-full">
+                <label
+                  htmlFor="number"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  Card Info
+                </label>
+                <input
+                  type="text"
+                  id="number"
+                  name="number"
+                  placeholder="xxxx-xxxx-xxxx-xxxx"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+
+              <div className="flex min-w-full gap-2">
+                <div className="w-1/2">
+                  <label
+                    htmlFor="expiry"
+                    className="mb-2 block text-sm font-medium dark:text-white"
+                  >
+                    Expiry
+                  </label>
+                  <input
+                    type="text"
+                    id="expiry"
+                    name="expiry"
+                    placeholder="MM/YYYY"
+                    className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                  />
+                </div>
+                <div className="w-1/2">
+                  <label
+                    htmlFor="cvv"
+                    className="mb-2 block text-sm font-medium dark:text-white"
+                  >
+                    CVV
+                  </label>
+                  <input
+                    type="text"
+                    id="cvv"
+                    name="cvv"
+                    className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            data-hs-stepper-content-item='{"index": 3}'
+            style={{ display: 'none' }}
+          >
+            <div className="mx-auto flex max-w-md flex-col gap-4">
+              <div className="min-w-full">
+                <label
+                  htmlFor="address"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+              <div className="min-w-full">
+                <label
+                  htmlFor="ssn"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  SSN
+                </label>
+                <input
+                  type="text"
+                  id="ssn"
+                  name="ssn"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+              <div className="min-w-full">
+                <label
+                  htmlFor="dob"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  Date of Birth
+                </label>
+                <input
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+              <div className="min-w-full">
+                <label
+                  htmlFor="phone"
+                  className="mb-2 block text-sm font-medium dark:text-white"
+                >
+                  Phone
+                </label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  className="block w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 flex items-center justify-between gap-x-2">
+            <button
+              type="button"
+              className="inline-flex items-center gap-x-1 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 disabled:pointer-events-none disabled:opacity-50"
+              data-hs-stepper-back-btn
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              className="inline-flex items-center gap-x-1 rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:pointer-events-none disabled:opacity-50"
+              data-hs-stepper-next-btn
+            >
+              Next
+            </button>
+            <button
+              type="button"
+              className="inline-flex items-center gap-x-1 rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:pointer-events-none disabled:opacity-50"
+              data-hs-stepper-finish-btn
+              style={{ display: 'none' }}
+            >
+              Finish
+            </button>
+            <button
+              type="reset"
+              className="inline-flex items-center gap-x-1 rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:pointer-events-none disabled:opacity-50"
+              data-hs-stepper-reset-btn
+              style={{ display: 'none' }}
+            >
+              Reset
+            </button>
+          </div>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </form>
     </main>
-  );
+  )
 }
